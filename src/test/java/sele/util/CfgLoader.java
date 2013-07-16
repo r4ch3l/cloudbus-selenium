@@ -36,7 +36,7 @@ public class CfgLoader {
 	public static String browserVersion = load("report.browserVersion");
 	public static String testLocation = load("report.testLocation");
 
-	// properties of email
+//	 properties of email
 	public static String hostName = load("email.hostName");
 	public static String authenticationName = load("email.authenticationName");
 	public static String authenticationPwd = load("email.authenticationPwd");

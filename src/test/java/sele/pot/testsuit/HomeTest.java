@@ -3,8 +3,6 @@ package sele.pot.testsuit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,7 +21,8 @@ import sele.pot.pages.homeRelated.ContactPage;
 import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 import sele.util.ReportUtil;
-import sele.util.ScreenShotRule;
+//import sele.util.ScreenShotRule;
+
 
 /**
  * This Test constitutes by the all test cases happens with elements on home
@@ -59,7 +58,7 @@ public class HomeTest {
 		driver.manage().deleteAllCookies();
 	}
 
-	@Test
+	//@Test
 	public void shouldOpenContactPageThenCheck()  {
 		String actual = "";
 		try {
@@ -97,7 +96,7 @@ public class HomeTest {
 		
 	}
 
-	@Test
+//	@Test
 	public void checkCopyRightOnHomePage() {
 		String actual = "";
 		String expected = "TIBCO Cloud Bus™ Copyright 2013 TIBCO Software Inc. All rights reserved. Proprietary and confidential | Privacy Policy | Terms of Use";
@@ -130,7 +129,7 @@ public class HomeTest {
 
 	}
 
-	@Test
+//	@Test
 	public void checkHomeVideo1() {
 		boolean actual = false;
 		try {
@@ -168,7 +167,7 @@ public class HomeTest {
 
 	}
 
-	@Test
+//	@Test
 	public void checkHomeVideo2() {
 		boolean actual = false;
 
@@ -206,7 +205,7 @@ public class HomeTest {
 
 	}
 
-	@Test
+//	@Test
 	public void checkHomeVideo3() {
 		boolean actual = false;
 
@@ -277,7 +276,7 @@ public class HomeTest {
 
 	}
 
-	@Rule
-	public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
+//	@Rule
+//	public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
 
 }
