@@ -58,7 +58,7 @@ public class HomeTest {
 		driver.manage().deleteAllCookies();
 	}
 
-	//@Test
+	@Test
 	public void shouldOpenContactPageThenCheck()  {
 		String actual = "";
 		try {
@@ -96,7 +96,7 @@ public class HomeTest {
 		
 	}
 
-//	@Test
+	@Test
 	public void checkCopyRightOnHomePage() {
 		String actual = "";
 		String expected = "TIBCO Cloud Bus™ Copyright 2013 TIBCO Software Inc. All rights reserved. Proprietary and confidential | Privacy Policy | Terms of Use";
@@ -129,7 +129,7 @@ public class HomeTest {
 
 	}
 
-//	@Test
+	@Test
 	public void checkHomeVideo1() {
 		boolean actual = false;
 		try {
@@ -167,7 +167,7 @@ public class HomeTest {
 
 	}
 
-//	@Test
+	@Test
 	public void checkHomeVideo2() {
 		boolean actual = false;
 
@@ -205,7 +205,7 @@ public class HomeTest {
 
 	}
 
-//	@Test
+	@Test
 	public void checkHomeVideo3() {
 		boolean actual = false;
 

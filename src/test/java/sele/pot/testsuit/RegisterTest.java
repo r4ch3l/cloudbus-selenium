@@ -57,9 +57,10 @@ public class RegisterTest {
 		String actual = "";
 		String expected = "To register for a Cloud Bus account, click Continue to go to the TIBCO Access Point (TAP) page. Your 30-day evaluation starts immediately after the registration.";
 		try {
-			HP_RegisterDialog page = Page.getPage(HP_RegisterDialog.class);
-			page.OpenRegisterDiv();
-			actual = page.getDescription();
+			HomePage home=Page.getPage(HomePage.class);
+			HP_RegisterDialog regDialog=home.OpenRegisterDiv();
+			
+			actual = regDialog.getDescription();
 			assertEquals(actual, expected);
 			boolean result = actual.equals(expected);
 			ReportUtil.insertReportLine("CB-27_1",// caseID
@@ -85,9 +86,9 @@ public class RegisterTest {
 	public void shouldOpenWhyRegPageThenCheckVideo() throws Exception {
 		boolean actual = false;
 		try {
-			HP_RegisterDialog page = Page.getPage(HP_RegisterDialog.class);
-			page.OpenRegisterDiv();
-			WhyRegisterPage whypage = page.OpenWhyRegLink(); //open why register link
+			HomePage home=Page.getPage(HomePage.class);
+			HP_RegisterDialog regDialog=home.OpenRegisterDiv();
+			WhyRegisterPage whypage = regDialog.OpenWhyRegLink(); //open why register link
 			assertTrue(whypage.isPresent());
 			assertEquals("Why register?", driver.getTitle()); //check page title
 			VideoXDialog videoDialog=whypage.OpenWhyRegVideo();//open video
@@ -128,9 +129,9 @@ public class RegisterTest {
 	public void shouldOpenRegPageThenCheck() throws Exception {
 		String actual = "";
 		try {
-			HP_RegisterDialog page = Page.getPage(HP_RegisterDialog.class);
-			page.OpenRegisterDiv();
-			CreateAccountPage regPage = page.OpenRegisterPage();
+			HomePage home=Page.getPage(HomePage.class);
+			HP_RegisterDialog regDialog=home.OpenRegisterDiv();
+			CreateAccountPage regPage = regDialog.OpenRegisterPage();
 			assertTrue(regPage.isPresent());
 			regPage.GetWelcomeUserMsg();
 			actual = regPage.GetWelcomeUserMsg();

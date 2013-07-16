@@ -86,8 +86,9 @@ public class HomePage extends Page {
 	/**
 	 * click the register button, open register dialog
 	 */
-	public void OpenRegisterDiv() {
+	public HP_RegisterDialog OpenRegisterDiv() {
 		REGISTER_BTN.click();
+		return Page.getPage(HP_RegisterDialog.class);
 	}
 	
 	/**
