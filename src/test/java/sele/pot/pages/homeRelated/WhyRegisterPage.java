@@ -1,0 +1,45 @@
+package sele.pot.pages.homeRelated;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import sele.pot.pages.Page;
+import sele.pot.pages.homePageForGuest.HomePage;
+import sele.pot.pages.homePageForGuest.VideoXDialog;
+/**
+ * This is the page object of "Why Register" page
+ * 
+ * @author XiaoXue_Chen
+ *
+ */
+public class WhyRegisterPage extends HomePage {
+
+	private final static Logger logger = LoggerFactory
+			.getLogger(WhyRegisterPage.class);
+
+	@FindBy(css = ".site.com_content.view-article.no-layout.no-task.itemid-117")
+	private WebElement PAGE_READY_ELEMENT;
+	@FindBy(css = ".span8.pull-left :nth-child(1).main-content-header")		//the title of the text on this page.
+	private WebElement TITLE_P;
+	@FindBy(css = ".why-register-video1")		//the image of the video on this page.
+	private WebElement WHY_REG_IMG;
+
+	public WhyRegisterPage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public VideoXDialog OpenWhyRegVideo() {
+		WHY_REG_IMG.click();
+		return Page.getPage(VideoXDialog.class);
+	}
+
+	protected WebElement getPageReadyElement() {
+		return this.PAGE_READY_ELEMENT;
+	}
+
+
+}
