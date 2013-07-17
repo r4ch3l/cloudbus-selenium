@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -21,8 +20,6 @@ import sele.pot.pages.homeRelated.ContactPage;
 import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 import sele.util.ReportUtil;
-//import sele.util.ScreenShotRule;
-
 
 /**
  * This Test constitutes by the all test cases happens with elements on home
@@ -59,7 +56,7 @@ public class HomeTest {
 	}
 
 	@Test
-	public void shouldOpenContactPageThenCheck()  {
+	public void shouldOpenContactPageThenCheck() {
 		String actual = "";
 		try {
 			HomePage homePage = Page.getPage(HomePage.class);
@@ -93,7 +90,7 @@ public class HomeTest {
 							"none"); // comment
 
 		}
-		
+
 	}
 
 	@Test
@@ -125,7 +122,6 @@ public class HomeTest {
 					"none"); // comment
 
 		}
-		
 
 	}
 
@@ -142,19 +138,21 @@ public class HomeTest {
 			videox.closeVideo();
 			actual = !videox.isPresent();
 			ReportUtil
-			.insertReportLine(
-					"CB-23_4(video1)", // caseID CB-23 in testlink ,step 4, part1
-					"video", // CaseName
-					"Open home page, click the first video -'key features' and then close it", // CaseDescription
-					"the video player is showing up first and then closed", // expected
-					actual == true ? "pass" : "fail", // test result
-					"Contains 20s waiting for the video loaded"); // comment
+					.insertReportLine(
+							"CB-23_4(video1)", // caseID CB-23 in testlink ,step
+												// 4, part1
+							"video", // CaseName
+							"Open home page, click the first video -'key features' and then close it", // CaseDescription
+							"the video player is showing up first and then closed", // expected
+							actual == true ? "pass" : "fail", // test result
+							"Contains 20s waiting for the video loaded"); // comment
 		} catch (Exception e) {
 			e.printStackTrace();
 			ReportUtil
 					.insertReportLine(
-							"CB-23_4(video1)", // caseID CB-23 in testlink ,step 4,
-											// part1
+							"CB-23_4(video1)", // caseID CB-23 in testlink ,step
+												// 4,
+												// part1
 							"video", // CaseName
 							"Open home page, click the first video -'key features' and then close it", // CaseDescription
 							"the video player is showing up first and then closed", // expected
@@ -162,8 +160,6 @@ public class HomeTest {
 							"Contains 20s waiting for the video loaded"); // comment
 
 		}
-
-		
 
 	}
 
@@ -181,13 +177,13 @@ public class HomeTest {
 			videox.closeVideo();
 			actual = !videox.isPresent();
 			ReportUtil
-			.insertReportLine(
-					"CB-23_4(video2)", // caseID_step_part
-					"video", // CaseName
-					"Open home page, click the second video -'cloud bus end to end' ,and then close it", // CaseDescription
-					"the video player is showing up first and then closed", // expected
-					actual == true ? "pass" : "fail", // test result
-					"Contains 20s waiting for the video loaded"); // comment
+					.insertReportLine(
+							"CB-23_4(video2)", // caseID_step_part
+							"video", // CaseName
+							"Open home page, click the second video -'cloud bus end to end' ,and then close it", // CaseDescription
+							"the video player is showing up first and then closed", // expected
+							actual == true ? "pass" : "fail", // test result
+							"Contains 20s waiting for the video loaded"); // comment
 		} catch (Exception e) {
 			e.printStackTrace();
 			ReportUtil
@@ -200,8 +196,6 @@ public class HomeTest {
 							"Contains 20s waiting for the video loaded"); // comment
 
 		}
-
-		
 
 	}
 
@@ -219,13 +213,13 @@ public class HomeTest {
 			videox.closeVideo();
 			actual = !videox.isPresent();
 			ReportUtil
-			.insertReportLine(
-					"CB-23_4(video3)", // caseID
-					"video", // CaseName
-					"Open home page, click the third video -'why cloud bus', and then close it", // CaseDescription
-					"the video player is showing up first and then closed", // expected
-					actual == true ? "pass" : "fail", // test result
-					"Contains 20s waiting for the video loaded"); // comment
+					.insertReportLine(
+							"CB-23_4(video3)", // caseID
+							"video", // CaseName
+							"Open home page, click the third video -'why cloud bus', and then close it", // CaseDescription
+							"the video player is showing up first and then closed", // expected
+							actual == true ? "pass" : "fail", // test result
+							"Contains 20s waiting for the video loaded"); // comment
 		} catch (Exception e) {
 			e.printStackTrace();
 			ReportUtil
@@ -238,8 +232,6 @@ public class HomeTest {
 							"Contains 20s waiting for the video loaded"); // comment
 
 		}
-
-	
 
 	}
 
@@ -254,13 +246,13 @@ public class HomeTest {
 			DriverUtil
 					.savePassScreenshot("clickBannerImgThenCheckRegisterDialog");
 			ReportUtil
-			.insertReportLine(
-					"CB-23_5", // caseID
-					"register", // CaseName
-					"Open home page, second point under the banner image, then click the banner image", // CaseDescription
-					"The register dialog should pop-up", // expected
-					actual == true ? "pass" : "fail", // test result
-					"none"); // comment
+					.insertReportLine(
+							"CB-23_5", // caseID
+							"register", // CaseName
+							"Open home page, second point under the banner image, then click the banner image", // CaseDescription
+							"The register dialog should pop-up", // expected
+							actual == true ? "pass" : "fail", // test result
+							"none"); // comment
 		} catch (Exception e) {
 			e.printStackTrace();
 			ReportUtil
@@ -272,11 +264,10 @@ public class HomeTest {
 							"error", // test result
 							"none"); // comment
 		}
-		
 
 	}
 
-//	@Rule
-//	public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
+	// @Rule
+	// public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
 
 }

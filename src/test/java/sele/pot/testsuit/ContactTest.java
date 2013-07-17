@@ -22,11 +22,13 @@ import sele.util.DriverUtil;
 import sele.util.ReportUtil;
 import sele.util.ScreenShotRule;
 
-public class ContectTest {
-	private final static Logger logger = LoggerFactory
-			.getLogger(HomeTest.class);
-	private static WebDriver driver = DriverUtil
-			.getDriver(CfgLoader.browserType);
+
+
+
+
+public class ContactTest {
+	private final static Logger logger = LoggerFactory.getLogger(HomeTest.class);
+	private static WebDriver driver = DriverUtil.getDriver(CfgLoader.browserType);
 	private static String hostAndPortAndContext = "https://cloudbus.tibco.com/index.php/contact";
 
 	@AfterClass
@@ -49,7 +51,7 @@ public class ContectTest {
 		driver.manage().deleteAllCookies();
 	}
 
-	//@Test
+	@Test
 	public void SubmitContactMsgWithInvalidEmail() throws IOException {
 		String actual = "";
 		try {
@@ -87,7 +89,7 @@ public class ContectTest {
 
 	}
 
-	//@Test
+	@Test
 	public void SubmitContactMsgThenCheck() throws IOException {
 		String actual = "";
 		try {
