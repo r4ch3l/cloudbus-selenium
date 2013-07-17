@@ -81,7 +81,7 @@ public class LoginTest {
 							"login with a pair of right username and password",// CaseDescription
 							" after user logined in, homepage reloaded and there is a welcome msg on the right-upper of the page ",// expected
 							"error",// test result
-							"none");// comment assertTrue(result);
+							e.toString());// comment assertTrue(result);
 
 		}
 		
@@ -117,7 +117,7 @@ public class LoginTest {
 							"login with a pair of wrong username and password",	// CaseDescription
 							"there will be a notification like'The email or password you entered is invalid!' ",// expected
 							"error",// test result
-							"none");// comment
+							e.toString());// comment
 
 		}
 	
@@ -149,7 +149,7 @@ public class LoginTest {
 					"Click the link for reset password on the login dialoug",	// CaseDescription
 					"The page for users to reset password should be open ",	// expected
 					"error",	// test result
-					"none");	// comment
+					e.toString());	// comment
 
 		}
 		

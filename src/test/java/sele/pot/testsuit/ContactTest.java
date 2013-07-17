@@ -85,7 +85,7 @@ public class ContactTest {
 					"Input invalid email and message then click submit", // CaseDescription
 					"There is a red message showing up ", // expected
 					"error", // test result
-					"none"); // comment
+					e.toString()); // comment
 
 		}
 
@@ -125,7 +125,7 @@ public class ContactTest {
 							"Open Contact pape, input valid msg and email ,then submit.", // CaseDescription
 							"There will be a \"Thank you \" msg shows up after the message send out. ", // expected
 							"error", // test result
-							"none"); // comment
+							e.toString()); // comment
 
 		}
 
@@ -164,7 +164,7 @@ public class ContactTest {
 							" OpenContact page ,input valid msg and email adress,then click \"reset\".", // CaseDescription
 							" Email address input and Message input should be empty now.", // expected
 							"error", // test result
-							"none"); // comment
+							e.toString()); // comment
 
 		}
 

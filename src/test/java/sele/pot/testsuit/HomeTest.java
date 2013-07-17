@@ -89,7 +89,7 @@ public class HomeTest {
 																								// description
 							"the title of the current page should be \"Contact Cloud Bus\" ", // expected
 							"error", // test result
-							"none"); // comment
+							e.toString()); // comment
 
 		}
 
@@ -121,7 +121,7 @@ public class HomeTest {
 					"Open home page, check the copy right information", // CaseDescription
 					"The copy right imformation should be there and correct", // expected
 					"error", // test result
-					"none"); // comment
+					e.toString()); // comment
 
 		}
 
@@ -158,7 +158,7 @@ public class HomeTest {
 							"Open home page, click the first video -'key features' and then close it", // CaseDescription
 							"the video player is showing up first and then closed", // expected
 							"error", // test result
-							"Contains 20s waiting for the video loaded"); // comment
+							e.toString()); // comment
 
 		}
 
@@ -193,7 +193,7 @@ public class HomeTest {
 							"Open home page, click the second video -'cloud bus end to end' ,and then close it", // CaseDescription
 							"the video player is showing up first and then closed", // expected
 							"error", // test result
-							"Contains 20s waiting for the video loaded"); // comment
+							e.toString()); // comment
 
 		}
 
@@ -228,7 +228,7 @@ public class HomeTest {
 							"Open home page, click the third video -'why cloud bus', and then close it", // CaseDescription
 							"the video player is showing up first and then closed", // expected
 							"error", // test result
-							"Contains 20s waiting for the video loaded"); // comment
+							e.toString()); // comment
 
 		}
 
@@ -261,7 +261,7 @@ public class HomeTest {
 							"Open home page, second point under the banner image, then click the banner image", // CaseDescription
 							"The register dialog should pop-up", // expected
 							"error", // test result
-							"none"); // comment
+							e.toString()); // comment
 		}
 
 	}

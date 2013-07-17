@@ -51,7 +51,7 @@ public class tempTest {
 
 	}
 
-	 @Test
+//	 @Test
 	public void downloadAFile() throws Exception {
 		driver.get("https://cloudbus.tibco.com");
 		HP_LoginDialog loginDialog = Page.getPage(HP_LoginDialog.class);
@@ -117,17 +117,14 @@ public class tempTest {
 						"none"); // comment
 	}
 
-	// @Test
+	 @Test
 	public void testtemp3() {
 		boolean result = true;
-		ReportUtil
-				.insertReportLine(
-						"CB-26_4", // caseID
-						"fake", // CaseName
-						"login with a pair of wrong username and password", // CaseDescription
-						"there will be a notification like'The email or password you entered is invalid!' ", // expected
-						"error", // test result
-						"none"); // comment
+		try {
+			throw new Exception("test");
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
 	}
 
 }

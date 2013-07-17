@@ -3,8 +3,11 @@ package sele.pot.pages.homePageForGuest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import sele.util.DriverUtil;
 
 
 
@@ -21,10 +24,7 @@ public class VideoXDialog extends HomePage{
 	
 	
 	public void closeVideo() throws InterruptedException{
-		while (!isElementVisible(CLOSE_BTN)) {
-			Thread.sleep(1000);
-			System.out.println("wait 1......");
-		}
+		DriverUtil.wait(ExpectedConditions.visibilityOf(CLOSE_BTN));
 		CLOSE_BTN.click();
 	}
 		

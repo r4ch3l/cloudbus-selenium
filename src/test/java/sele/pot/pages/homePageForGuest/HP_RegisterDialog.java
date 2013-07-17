@@ -42,12 +42,14 @@ public class HP_RegisterDialog extends Page {
 	}
 
 	public WhyRegisterPage OpenWhyRegLink() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(WHY_REG_LINK));
 		WHY_REG_LINK.click();
 		return Page.getPage(WhyRegisterPage.class);
 
 	}
 
 	public CreateAccountPage OpenRegisterPage() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(CONTINUE_BTN));
 		CONTINUE_BTN.click();
 		return Page.getPage(CreateAccountPage.class);
 	}

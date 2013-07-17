@@ -79,6 +79,7 @@ public class HomePage extends Page {
 	 * click the sign in link ,open sign in dialog
 	 */
 	public void OpenSignInDiv() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(SIGN_IN_LINK));
 		SIGN_IN_LINK.click();
 
 	}
@@ -87,6 +88,7 @@ public class HomePage extends Page {
 	 * click the register button, open register dialog
 	 */
 	public HP_RegisterDialog OpenRegisterDiv() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(REGISTER_BTN));
 		REGISTER_BTN.click();
 		return Page.getPage(HP_RegisterDialog.class);
 	}
@@ -96,6 +98,7 @@ public class HomePage extends Page {
 	 * @return copyright string 
 	 */
 	public String getCopyRightTxt() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(COPYRIGHT_TXT));
 		return COPYRIGHT_TXT.getText();
 	}
 	
@@ -135,6 +138,7 @@ public class HomePage extends Page {
 	 * @return ContactPage
 	 */
 	public ContactPage OpenContactPage() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(CONTACT_BTN));
 		CONTACT_BTN.click();
 		return Page.getPage(ContactPage.class);
 	}

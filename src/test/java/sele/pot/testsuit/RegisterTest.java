@@ -63,7 +63,7 @@ public class RegisterTest {
 			actual = regDialog.getDescription();
 			assertEquals(actual, expected);
 			boolean result = actual.equals(expected);
-			DriverUtil.savePassScreenshot("CB-27_2_3");
+			DriverUtil.savePassScreenshot("CB-27_1");
 			ReportUtil.insertReportLine("CB-27_1",// caseID
 					"register",// CaseName
 					"Click the register button on the home page. ",// CaseDescription
@@ -77,8 +77,7 @@ public class RegisterTest {
 					"Click the register button on the home page. ",// CaseDescription
 					"There will be a register dialog pop-up",// expected
 					"error",// test result
-					"none");// comment
-
+					e.toString());// comment
 		}
 		
 	}
@@ -98,16 +97,14 @@ public class RegisterTest {
 			Thread.sleep(20000); // wait for the video loaded
 			DriverUtil.savePassScreenshot("CB-27_2_3");
 			videoDialog.closeVideo();
-			actual = !videoDialog.isPresent();
-			assertTrue(actual);// check player closed
-			boolean result = "Why register?".equals(actual);
+		
 			ReportUtil
 					.insertReportLine(
 							"CB-27_2 CB-27_3",// caseID
 							"register",// CaseName
 							"Click the register button on the home page, then click 'Why register' link",// CaseDescription
 							"A page called 'Why Register' will be open",// expected
-							result == true ? "pass" : "fail",// test result
+							actual == true ? "pass" : "fail",// test result
 							"none");// comment
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,7 +115,7 @@ public class RegisterTest {
 							"Click the register button on the home page, then click 'Why register' link",// CaseDescription
 							"A page called 'Why Register' will be open",// expected
 							"error",// test result
-							"none");// comment
+							e.toString());// comment
 
 		}
 	
@@ -157,7 +154,7 @@ public class RegisterTest {
 							"Click the register button on the home page, then click 'continue",// CaseDescription
 							"The registeration page should be open up",// expected
 							"error",// test result
-							"none");// comment
+							e.toString());// comment
 		}
 		
 	}
