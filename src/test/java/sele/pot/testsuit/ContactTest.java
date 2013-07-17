@@ -65,7 +65,7 @@ public class ContactTest {
 			logger.info("click submit");
 			actual = contactPage.getEmailErrorNotic();
 			assertEquals("What is your email address?", actual);
-			DriverUtil.savePassScreenshot("ShouldOpenContactPageThenCheck");
+			DriverUtil.savePassScreenshot("CB-28_2");
 			boolean result = "Contact Cloud Bus".equals(actual);
 			ReportUtil
 					.insertReportLine(
@@ -102,7 +102,7 @@ public class ContactTest {
 			contactPage.Submit();
 			actual = contactPage.getThankUAftersubmit();
 			assertEquals("Your form has been submitted.", actual);
-			DriverUtil.savePassScreenshot("SubmitContactMsgWithValidEmail");
+			DriverUtil.savePassScreenshot("CB-28_3");
 			boolean result = "Contact Cloud Bus".equals(actual);
 			ReportUtil
 					.insertReportLine(
@@ -139,7 +139,7 @@ public class ContactTest {
 			contactPage.clickReset();
 			actual = contactPage.isInputEmpty();
 			assertTrue(actual);
-			DriverUtil.savePassScreenshot("ClickResetThenCheck");
+			DriverUtil.savePassScreenshot("CB-28_4");
 			boolean result = "Contact Cloud Bus".equals(actual);
 			ReportUtil
 					.insertReportLine(

@@ -67,7 +67,7 @@ public class HomeTest {
 			actual = driver.getTitle();
 			logger.info("contact page :" + actual);
 			assertEquals("Contact Cloud Bus", actual);
-			DriverUtil.savePassScreenshot("ShouldOpenContactPageThenCheck");
+			DriverUtil.savePassScreenshot("CB-28_1");
 			boolean result = "Contact Cloud Bus".equals(actual);
 			ReportUtil
 					.insertReportLine(
@@ -106,7 +106,7 @@ public class HomeTest {
 			actual = homePage.getCopyRightTxt();
 			assertEquals(expected, actual);
 			Thread.sleep(10000);
-			DriverUtil.savePassScreenshot("CheckCopyRightOnHomePage");
+			DriverUtil.savePassScreenshot("CB-23_2");
 			boolean result = expected.equals(actual);
 			ReportUtil.insertReportLine("CB-23_2", // caseID
 					"copy right", // CaseName
@@ -136,7 +136,7 @@ public class HomeTest {
 			actual = videox.isPresent();
 			assertTrue(actual);
 			Thread.sleep(20000); // wait for the video loaded
-			DriverUtil.savePassScreenshot("CheckHomeVideo1");
+			DriverUtil.savePassScreenshot("CB-23_4(video1)");
 			videox.closeVideo();
 			actual = !videox.isPresent();
 			ReportUtil
@@ -175,7 +175,7 @@ public class HomeTest {
 			actual = videox.isPresent();
 			assertTrue(actual);
 			Thread.sleep(20000); // wait for the video loaded
-			DriverUtil.savePassScreenshot("CheckHomeVideo2");
+			DriverUtil.savePassScreenshot("CB-23_4(video2)");
 			videox.closeVideo();
 			actual = !videox.isPresent();
 			ReportUtil
@@ -211,7 +211,7 @@ public class HomeTest {
 			actual = videox.isPresent();
 			assertTrue(actual);
 			Thread.sleep(20000); // wait for the video loaded
-			DriverUtil.savePassScreenshot("CheckHomeVideo3");
+			DriverUtil.savePassScreenshot("CB-23_4(video3)");
 			videox.closeVideo();
 			actual = !videox.isPresent();
 			ReportUtil
@@ -246,7 +246,7 @@ public class HomeTest {
 			actual = register.isPresent();
 			assertTrue(actual);
 			DriverUtil
-					.savePassScreenshot("clickBannerImgThenCheckRegisterDialog");
+					.savePassScreenshot("CB-23_5");
 			ReportUtil
 					.insertReportLine(
 							"CB-23_5", // caseID

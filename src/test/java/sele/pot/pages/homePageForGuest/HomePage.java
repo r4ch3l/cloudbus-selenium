@@ -143,6 +143,7 @@ public class HomePage extends Page {
 	 * @return HP_RegisterDialog
 	 */
 	public HP_RegisterDialog clickBannerImg(){
+		DriverUtil.wait(ExpectedConditions.visibilityOf(POINT_BTN1));
 		POINT_BTN1.click();
 		DriverUtil.wait(ExpectedConditions.visibilityOf(Banner_IMG2));
 		Banner_IMG2.click();

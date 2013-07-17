@@ -62,7 +62,7 @@ public class LoginTest {
 			assertTrue(homePage.isPresent());
 			actual = homePage.getUserWelcomeMsg();
 			assertEquals("Tom Zhao", actual);
-			DriverUtil.savePassScreenshot("shouldLoginThenCheckUserName");
+			DriverUtil.savePassScreenshot("CB-26_1_2");
 			boolean result = "Tom Zhao".equals(actual);
 			ReportUtil
 					.insertReportLine(
@@ -97,7 +97,7 @@ public class LoginTest {
 			actual = loginDialog.getErrorMessage();
 			assertEquals("The email or password you entered is invalid!",
 					actual);
-			DriverUtil.savePassScreenshot("shouldFailLoginThenCheckErrorMsg");
+			DriverUtil.savePassScreenshot("CB-26_4");
 			boolean result = "The email or password you entered is invalid!"
 					.equals(actual);
 			ReportUtil
@@ -134,7 +134,7 @@ public class LoginTest {
 			ResetPwdPage resetPwdPage = Page.getPage(ResetPwdPage.class);
 			actual = resetPwdPage.isPresent();
 			assertTrue(actual);
-			DriverUtil.savePassScreenshot("shouldOpenResetPWDPage");
+			DriverUtil.savePassScreenshot("CB-26_3");
 			boolean result = actual;
 			ReportUtil.insertReportLine("CB-26_3",// caseID
 					"login",// CaseName

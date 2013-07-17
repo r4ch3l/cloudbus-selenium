@@ -63,6 +63,7 @@ public class RegisterTest {
 			actual = regDialog.getDescription();
 			assertEquals(actual, expected);
 			boolean result = actual.equals(expected);
+			DriverUtil.savePassScreenshot("CB-27_2_3");
 			ReportUtil.insertReportLine("CB-27_1",// caseID
 					"register",// CaseName
 					"Click the register button on the home page. ",// CaseDescription
@@ -95,7 +96,7 @@ public class RegisterTest {
 			actual = videoDialog.isPresent();
 			assertTrue(actual);//check video player
 			Thread.sleep(20000); // wait for the video loaded
-			DriverUtil.savePassScreenshot("shouldOpenWhyRegPageThenCheckVideo");
+			DriverUtil.savePassScreenshot("CB-27_2_3");
 			videoDialog.closeVideo();
 			actual = !videoDialog.isPresent();
 			assertTrue(actual);// check player closed
@@ -137,7 +138,7 @@ public class RegisterTest {
 			actual = regPage.GetWelcomeUserMsg();
 			assertEquals("Welcome Guest", actual);
 			DriverUtil
-					.savePassScreenshot("shouldOpenRegPageThenCheckWelcomeMsg");
+					.savePassScreenshot("CB-27_4");
 			boolean result = "Welcome Guest".equals(actual);
 			ReportUtil
 					.insertReportLine(
