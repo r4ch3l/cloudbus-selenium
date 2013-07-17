@@ -61,7 +61,7 @@ public class EmailUtil {
 			// set the alternative message
 			// email.setTextMsg("Your email client does not support HTML messages");
 			// send the email
-			//email.addCc(CfgLoader.ccTo);
+			email.addCc(CfgLoader.ccTo);
 			email.send();
 
 		} catch (EmailException e) {

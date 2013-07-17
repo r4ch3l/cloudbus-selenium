@@ -3,12 +3,15 @@ package sele.pot.pages.homeRelated;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sele.pot.pages.Page;
 import sele.pot.pages.homePageForGuest.HomePage;
 import sele.pot.pages.homePageForGuest.VideoXDialog;
+import sele.util.DriverUtil;
 /**
  * This is the page object of "Why Register" page
  * 
@@ -33,6 +36,7 @@ public class WhyRegisterPage extends HomePage {
 	}
 
 	public VideoXDialog OpenWhyRegVideo() {
+		DriverUtil.wait(ExpectedConditions.visibilityOf(WHY_REG_IMG));
 		WHY_REG_IMG.click();
 		return Page.getPage(VideoXDialog.class);
 	}

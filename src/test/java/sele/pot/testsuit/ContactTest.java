@@ -33,7 +33,7 @@ public class ContactTest {
 
 	@AfterClass
 	public static void afterAllIsSaidAndDone() {
-//		driver.quit();
+		driver.quit();
 
 	}
 

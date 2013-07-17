@@ -7,8 +7,9 @@ import java.util.Properties;
 
 /**
  * This is a loader tool for loading the properties form the configure file.
+ * 
  * @author XiaoXue_Chen
- *
+ * 
  */
 public class CfgLoader {
 	// the path of 'conf.properties' file
@@ -36,7 +37,7 @@ public class CfgLoader {
 	public static String browserVersion = load("report.browserVersion");
 	public static String testLocation = load("report.testLocation");
 
-//	 properties of email
+	// properties of email
 	public static String hostName = load("email.hostName");
 	public static String authenticationName = load("email.authenticationName");
 	public static String authenticationPwd = load("email.authenticationPwd");
@@ -49,7 +50,8 @@ public class CfgLoader {
 	public static String load(String key) {
 		Properties props = new Properties();
 		try {
-			InputStream in = new BufferedInputStream(new FileInputStream(confFile));
+			InputStream in = new BufferedInputStream(new FileInputStream(
+					confFile));
 			props.load(in);
 			String value = props.getProperty(key);
 			return value;
