@@ -138,7 +138,6 @@ public class HomeTest {
 			Thread.sleep(20000); // wait for the video loaded
 			DriverUtil.savePassScreenshot("CB-23_4(video1)");
 			videox.closeVideo();
-			actual = !videox.isPresent();
 			ReportUtil
 					.insertReportLine(
 							"CB-23_4(video1)", // caseID CB-23 in testlink ,step
@@ -177,7 +176,6 @@ public class HomeTest {
 			Thread.sleep(20000); // wait for the video loaded
 			DriverUtil.savePassScreenshot("CB-23_4(video2)");
 			videox.closeVideo();
-			actual = !videox.isPresent();
 			ReportUtil
 					.insertReportLine(
 							"CB-23_4(video2)", // caseID_step_part
@@ -213,7 +211,6 @@ public class HomeTest {
 			Thread.sleep(20000); // wait for the video loaded
 			DriverUtil.savePassScreenshot("CB-23_4(video3)");
 			videox.closeVideo();
-			actual = !videox.isPresent();
 			ReportUtil
 					.insertReportLine(
 							"CB-23_4(video3)", // caseID
