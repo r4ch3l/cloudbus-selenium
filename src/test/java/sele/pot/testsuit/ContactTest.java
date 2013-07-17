@@ -66,7 +66,9 @@ public class ContactTest {
 			actual = contactPage.getEmailErrorNotic();
 			assertEquals("What is your email address?", actual);
 			DriverUtil.savePassScreenshot("CB-28_2");
-			boolean result = "Contact Cloud Bus".equals(actual);
+			logger.info("actual: "+actual);
+			boolean result = "What is your email address?".equals(actual);
+			logger.info("result: "+result);
 			ReportUtil
 					.insertReportLine(
 							"CB-28_2", // caseID
@@ -103,7 +105,9 @@ public class ContactTest {
 			actual = contactPage.getThankUAftersubmit();
 			assertEquals("Your form has been submitted.", actual);
 			DriverUtil.savePassScreenshot("CB-28_3");
-			boolean result = "Contact Cloud Bus".equals(actual);
+			logger.info("actual: "+actual);
+			boolean result = "Your form has been submitted.".equals(actual);
+			logger.info("result: "+result);
 			ReportUtil
 					.insertReportLine(
 							"CB-28_3", // caseID_step
@@ -140,14 +144,16 @@ public class ContactTest {
 			actual = contactPage.isInputEmpty();
 			assertTrue(actual);
 			DriverUtil.savePassScreenshot("CB-28_4");
-			boolean result = "Contact Cloud Bus".equals(actual);
+			logger.info("actual: "+actual);
+			
+			
 			ReportUtil
 					.insertReportLine(
 							"CB-28_4", // caseID_step
 							"contact", // CaseName
 							" OpenContact page ,input valid msg and email adress,then click \"reset\".", // CaseDescription
 							" Email address input and Message input should be empty now.", // expected
-							result == true ? "pass" : "fail", // test result
+							actual == true ? "pass" : "fail", // test result
 							"none"); // comment assertTrue(result);
 		} catch (Exception e) {
 			e.printStackTrace();
