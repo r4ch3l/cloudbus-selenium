@@ -30,7 +30,7 @@ public class TestSuit {
 
 	@Test
 	public void test() {
-		Result r = org.junit.runner.JUnitCore.runClasses(HomeTest.class,RegisterTest.class, LoginTest.class,ContactTest.class);
+		Result r = org.junit.runner.JUnitCore.runClasses(HomeTest.class);
 //		Result r = org.junit.runner.JUnitCore.runClasses(HomeTest.class);
 		int run=r.getRunCount();
 		int fail=r.getFailureCount();

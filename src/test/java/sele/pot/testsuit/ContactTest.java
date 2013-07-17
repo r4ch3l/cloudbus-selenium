@@ -33,7 +33,7 @@ public class ContactTest {
 
 	@AfterClass
 	public static void afterAllIsSaidAndDone() {
-		driver.quit();
+//		driver.quit();
 
 	}
 
@@ -48,7 +48,7 @@ public class ContactTest {
 
 	@BeforeClass
 	public static void beforeAllIsSaidAndDone() {
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 	}
 
 	@Test

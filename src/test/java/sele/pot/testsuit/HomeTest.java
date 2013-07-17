@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import sele.pot.pages.homeRelated.ContactPage;
 import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 import sele.util.ReportUtil;
+import sele.util.ScreenShotRule;
 
 /**
  * This Test constitutes by the all test cases happens with elements on home
@@ -235,7 +237,7 @@ public class HomeTest {
 
 	}
 
-	@Test
+	//@Test
 	public void clickBannerImgThenCheckRegisterDialog() {
 		boolean actual = false;
 		try {
@@ -267,7 +269,7 @@ public class HomeTest {
 
 	}
 
-	// @Rule
-	// public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
+	 @Rule
+	 public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
 
 }
