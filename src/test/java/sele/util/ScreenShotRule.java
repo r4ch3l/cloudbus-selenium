@@ -12,11 +12,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-
 /**
  * This is the rule for screen shooting when the assertion fail in Junit.
+ * 
  * @author XiaoXue_Chen
- *
+ * 
  */
 public class ScreenShotRule implements MethodRule {
 	public WebDriver driver;
@@ -28,7 +28,8 @@ public class ScreenShotRule implements MethodRule {
 		directoryName = getDirectoryName();
 	}
 
-	public Statement apply(final Statement statement,final FrameworkMethod frameworkMethod, final Object o) {
+	public Statement apply(final Statement statement,
+			final FrameworkMethod frameworkMethod, final Object o) {
 		return new Statement() {
 			@Override
 			public void evaluate() throws Throwable {
@@ -36,17 +37,20 @@ public class ScreenShotRule implements MethodRule {
 					statement.evaluate();
 				} catch (Throwable t) {
 					captureScreenshot(frameworkMethod.getName());
-					throw t; // rethrow to allow the failure to be reported to JUnit
+					throw t; // rethrow to allow the failure to be reported to
+								// JUnit
 				}
 			}
 
 			public void captureScreenshot(String fileName) {
 				try {
-					new File(directoryName).mkdirs(); // Insure directory is there
+					new File(directoryName).mkdirs(); // Insure directory is
+														// there
 					FileOutputStream out = new FileOutputStream(directoryName
 							+ "screenshot-" + fileName + "-" + getTime()
 							+ ".png");
-					out.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+					out.write(((TakesScreenshot) driver)
+							.getScreenshotAs(OutputType.BYTES));
 					out.close();
 				} catch (Exception e) {
 					// No need to crash the tests if the screenshot fails

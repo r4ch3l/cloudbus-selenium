@@ -20,15 +20,19 @@ import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 import sele.util.ReportUtil;
 import sele.util.ScreenShotRule;
+
 /**
- * This Test constitutes by the all test cases happens with elements on Login dialogue of home page.
+ * This Test constitutes by the all test cases happens with elements on Login
+ * dialogue of home page.
+ * 
  * @author XiaoXue_Chen
- *
+ * 
  */
 public class LoginTest {
 	private final static Logger logger = LoggerFactory
 			.getLogger(LoginTest.class);
-	private static WebDriver driver = DriverUtil.getDriver(CfgLoader.browserType);
+	private static WebDriver driver = DriverUtil
+			.getDriver(CfgLoader.browserType);
 	private static String hostAndPortAndContext = "http://cloudbus.tibco.com";
 	private static String logOutURI = "";
 	private static String logInURI = "";
@@ -53,6 +57,7 @@ public class LoginTest {
 
 	@Test
 	public void shouldLoginThenCheckUserName() throws Exception {
+		logger.info("LoginTest3-1: start");
 		String actual = "";
 		try {
 			HP_LoginDialog loginDialog = Page.getPage(HP_LoginDialog.class);
@@ -66,29 +71,31 @@ public class LoginTest {
 			boolean result = "Tom Zhao".equals(actual);
 			ReportUtil
 					.insertReportLine(
-							"CB-26_1 CB-26_2",// caseID_step
-							"login",// CaseName
+							"CB-26",// caseID_step
+							"Validate HomePage_Guest-SignInDialog(step1-2)",// CaseName
 							"login with a pair of right username and password",// CaseDescription
 							" after user logined in, homepage reloaded and there is a welcome msg on the right-upper of the page ",// expected
 							result == true ? "pass" : "fail",// test result
-							"none");// comment
+							"LoginTest3-1", "none");// comment
+			logger.info("LoginTest 3-1: done");
 		} catch (Exception e) {
-			e.printStackTrace();
 			ReportUtil
 					.insertReportLine(
-							"CB-26_1 CB-26_2",// caseID_step
-							"login",// CaseName
+							"CB-262",// caseID_step
+							"Validate HomePage_Guest-SignInDialog(step1-2)",// CaseName
 							"login with a pair of right username and password",// CaseDescription
 							" after user logined in, homepage reloaded and there is a welcome msg on the right-upper of the page ",// expected
 							"error",// test result
-							e.toString());// comment assertTrue(result);
+							"LoginTest3-1", e.toString());// comment
+															// assertTrue(result);
 
 		}
-		
+
 	}
 
 	@Test
 	public void shouldFailLoginThenCheckErrorMsg() throws Exception {
+		logger.info("LoginTest 3-2: start");
 		String actual = "";
 		try {
 			HP_LoginDialog loginDialog = Page.getPage(HP_LoginDialog.class);
@@ -102,30 +109,30 @@ public class LoginTest {
 					.equals(actual);
 			ReportUtil
 					.insertReportLine(
-							"CB-26_4",	// caseID
-							"login",	// CaseName
-							"login with a pair of wrong username and password",	// CaseDescription
-							"there will be a notification like'The email or password you entered is invalid!' ",	// expected
-							result == true ? "pass" : "fail",	// test result
-							"none");	// comment
+							"CB-26", // caseID
+							"Validate HomePage_Guest-SignInDialog(step4)", // CaseName
+							"login with a pair of wrong username and password", // CaseDescription
+							"there will be a notification like'The email or password you entered is invalid!' ", // expected
+							result == true ? "pass" : "fail", // test result
+							"LoginTest3-2", "none"); // comment
+			logger.info("LoginTest 3-2: done");
 		} catch (Exception e) {
-			e.printStackTrace();
 			ReportUtil
 					.insertReportLine(
-							"CB-26_4",// caseID
-							"login",// CaseName
-							"login with a pair of wrong username and password",	// CaseDescription
+							"CB-26",// caseID
+							"Validate HomePage_Guest-SignInDialog(step4)",// CaseName
+							"login with a pair of wrong username and password", // CaseDescription
 							"there will be a notification like'The email or password you entered is invalid!' ",// expected
 							"error",// test result
-							e.toString());// comment
+							"LoginTest3-2", e.toString());// comment
 
 		}
-	
 
 	}
 
 	@Test
 	public void shouldOpenResetPWDPage() throws Exception {
+		logger.info("LoginTest 3-3: start");
 		boolean actual = false;
 		try {
 			HP_LoginDialog loginDialog = Page.getPage(HP_LoginDialog.class);
@@ -136,23 +143,23 @@ public class LoginTest {
 			assertTrue(actual);
 			DriverUtil.savePassScreenshot("CB-26_3");
 			boolean result = actual;
-			ReportUtil.insertReportLine("CB-26_3",// caseID
-					"login",// CaseName
+			ReportUtil.insertReportLine("CB-26",// caseID
+					"Validate HomePage_Guest-SignInDialog(step3)",// CaseName
 					"Click the link for reset password on the login dialoug",// CaseDescription
 					"The page for users to reset password should be open ",// expected
 					result == true ? "pass" : "fail",// test result
-					"none");// comment
+					"LoginTest3-3", "none");// comment
+			logger.info("LoginTest 3-3: done");
 		} catch (Exception e) {
-			e.printStackTrace();
-			ReportUtil.insertReportLine("CB-26_3",	// caseID
-					"login",	// CaseName
-					"Click the link for reset password on the login dialoug",	// CaseDescription
-					"The page for users to reset password should be open ",	// expected
-					"error",	// test result
-					e.toString());	// comment
+			ReportUtil.insertReportLine("CB-26", // caseID
+					"Validate HomePage_Guest-SignInDialog(step3)", // CaseName
+					"Click the link for reset password on the login dialoug", // CaseDescription
+					"The page for users to reset password should be open ", // expected
+					"error", // test result
+					"LoginTest3-3", e.toString()); // comment
 
 		}
-		
+
 	}
 
 	@Rule

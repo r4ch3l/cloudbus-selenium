@@ -67,7 +67,7 @@ abstract public class Page {
 	 */
 	public boolean isPresent() {
 		try {
-			DriverUtil.wait(ifPageReadyCondition());
+			DriverUtil.wait(this.ifPageReadyCondition());
 		} catch (Exception e) {
 			return false;
 		}

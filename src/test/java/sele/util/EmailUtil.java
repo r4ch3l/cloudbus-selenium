@@ -18,11 +18,13 @@ import org.apache.commons.mail.SimpleEmail;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Zip;
 import org.apache.tools.ant.types.FileSet;
+
 /**
- * This is the utility for sending the email after test
- * There are three types: SimpleEmail, HTMLEmail, MutiEmail
+ * This is the utility for sending the email after test There are three types:
+ * SimpleEmail, HTMLEmail, MutiEmail
+ * 
  * @author XiaoXue_Chen
- *
+ * 
  */
 public class EmailUtil {
 	private static Properties config = new Properties();
@@ -44,7 +46,7 @@ public class EmailUtil {
 
 	public static void sendHTMLEmail(String address) {
 		try {
-		
+
 			HtmlEmail email = new HtmlEmail();
 			email.setHostName(hostName);
 			email.setAuthentication(authenticationName, authenticationPwd);
@@ -52,7 +54,7 @@ public class EmailUtil {
 			email.addTo(address);
 			email.setFrom(sentFrom);// here must the same as AuthenticationName
 			email.setSubject(subject);
-			email.attach(getZipAsAttachement());
+			// email.attach(getZipAsAttachement());
 			// URL url = new
 			// URL("https://cloudbus.tibco.com/images/tibco_cloudbus.png");
 			// String cid = email.embed(url, "cloudbus logo");
@@ -160,7 +162,7 @@ public class EmailUtil {
 		File zipFile = new File(targetPathName);
 		File srcdir = new File(srcPathName);
 		if (!srcdir.exists())
-			throw new RuntimeException(srcPathName + "�?存在�?");
+			throw new RuntimeException(srcPathName + "doesn't exists");
 		Project prj = new Project();
 		Zip zip = new Zip();
 		zip.setProject(prj);
@@ -169,7 +171,7 @@ public class EmailUtil {
 		fileSet.setProject(prj);
 		fileSet.setDir(srcdir);
 		// fileSet.setIncludes("**/*.java"); 包括哪些文件或文件夹
-		// eg:zip.setIncludes("*.java");
+		// fileSet.setIncludes("**/*.java");
 		fileSet.setExcludes("classes");// 排除哪些文件或文件夹
 		fileSet.setExcludes("test-classes");// 排除哪些文件或文件夹
 		zip.addFileset(fileSet);

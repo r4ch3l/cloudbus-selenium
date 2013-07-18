@@ -16,7 +16,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 /**
  * This is the utility for get a certain Web driver.
  * 
@@ -33,8 +32,7 @@ public class DriverUtil {
 	 * Web driver
 	 */
 	static WebDriver driver;
-	
-	
+
 	/**
 	 * Get the driver for initializing the page object.
 	 * 
@@ -58,10 +56,11 @@ public class DriverUtil {
 			driver = new FirefoxDriver();
 
 		} else if ("Chrome".equals(driverType)) {
-			System.setProperty("webdriver.chrome.driver",CfgLoader.chromeDriverPath);
+			System.setProperty("webdriver.chrome.driver",
+					CfgLoader.chromeDriverPath);
 			driver = new ChromeDriver();
 		} else if ("IE".equals(driverType)) {
-			System.setProperty("webdriver.ie.driver",CfgLoader.ieDriverPath);
+			System.setProperty("webdriver.ie.driver", CfgLoader.ieDriverPath);
 
 			WebDriver driver = new InternetExplorerDriver();
 			driver = new InternetExplorerDriver();

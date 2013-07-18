@@ -56,8 +56,11 @@ public class HomePage extends Page {
 	
 	@FindBy(css =".slidesjs-pagination-item a[data-slidesjs-item=\"1\"]")// the point button under the banner image
 	private WebElement POINT_BTN1;
-	@FindBy(css=".slidesjs-slide img[src=\"https://cloudbus.tibco.com/images/banners/banner2.png\"]")// banner image 
-	private WebElement Banner_IMG2;
+//	@FindBy(css=".slidesjs-slide img[src=\"https://cloudbus.tibco.com/images/banners/banner2.png\"]")// banner image 
+//	private WebElement Banner_IMG2;
+	@FindBy(css=".slidesjs-slide img")// banner image 
+	private WebElement Banner_IMG2;	
+	
 	public HomePage() {
 		super();
 
@@ -147,8 +150,8 @@ public class HomePage extends Page {
 	 * @return HP_RegisterDialog
 	 */
 	public HP_RegisterDialog clickBannerImg(){
-		DriverUtil.wait(ExpectedConditions.visibilityOf(POINT_BTN1));
-		POINT_BTN1.click();
+//		DriverUtil.wait(ExpectedConditions.visibilityOf(POINT_BTN1));
+//		POINT_BTN1.click();
 		DriverUtil.wait(ExpectedConditions.visibilityOf(Banner_IMG2));
 		Banner_IMG2.click();
 		return Page.getPage(HP_RegisterDialog.class);

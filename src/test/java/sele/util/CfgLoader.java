@@ -21,12 +21,6 @@ public class CfgLoader {
 	public static String chromeDriverPath = load("browser.chromeDriverPath");
 	public static String ieDriverPath = load("browser.ieDriverPath");
 
-	// html file tag name
-	public static String RunTag = load("report.runtag");
-	public static String PassTag = load("report.passtag");
-	public static String FailTag = load("report.failtag");
-	public static String ErrorTag = load("report.errortag");
-
 	// report simple model
 	public static String reportSamplePath = load("report.samplePath");
 

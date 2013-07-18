@@ -36,6 +36,48 @@ public class tempTest {
 	private static WebDriver driver = DriverUtil
 			.getDriver(CfgLoader.browserType);
 
+	
+	@Test
+	public void checkCopyRightOnHomePage() {
+		driver.get("http://cloudbus.tibco.com");
+		logger.info("HomeTest6-2: start");
+		String actual = "";
+		String expected = "TIBCO Cloud Bus™ Copyright 2013 TIBCO Software Inc. All rights reserved. Proprietary and confidential | Privacy Policy | Terms of Use";
+
+		try {
+			HomePage homePage = Page.getPage(HomePage.class);
+			homePage.isPresent();
+			actual = homePage.getCopyRightTxt();
+			logger.info("expected :  " + expected);
+			logger.info("actual :  " + actual);
+			assertTrue(actual.indexOf("Copyright 2013 TIBCO Software Inc. All rights reserved.")>0);
+			//assertEquals(expected, actual);
+			DriverUtil.savePassScreenshot("CB-23_2");
+			boolean result = expected.equals(actual);
+			logger.info("result :  " + result);
+			ReportUtil.insertReportLine("CB-23", // caseID
+					"Validate HomePage_Guest(step2)", // CaseName
+					"Open home page, check the copy right information", // CaseDescription
+					"The copy right imformation should be there and correct", // expected
+					result == true ? "pass" : "fail", // test result
+					"HomeTest6-2", "none"); // comment
+			logger.info("HomeTest6-2: done");
+		} catch (Exception e) {
+			e.printStackTrace();
+			ReportUtil.insertReportLine("CB-23", // caseID
+					"Validate HomePage_Guest(step2)", // CaseName
+					"Open home page, check the copy right information", // CaseDescription
+					"The copy right imformation should be there and correct", // expected
+					"error", // test result
+					"HomeTest6-2", e.toString()); // comment
+
+		}
+
+	}
+
+	
+	
+	
 	@AfterClass
 	public static void afterAllIsSaidAndDone() {
 		// driver.quit();
@@ -101,6 +143,7 @@ public class tempTest {
 						"login with a pair of wrong username and password", // CaseDescription
 						"there will be a notification like'The email or password you entered is invalid!' ", // expected
 						result == true ? "pass" : "fail", // test result
+								"test",
 						"none"); // comment
 	}
 
@@ -114,10 +157,11 @@ public class tempTest {
 						"login with a pair of wrong username and password", // CaseDescription
 						"there will be a notification like'The email or password you entered is invalid!' ", // expected
 						result == true ? "pass" : "fail", // test result
+								"test",
 						"none"); // comment
 	}
 
-	 @Test
+//	 @Test
 	public void testtemp3() {
 		boolean result = true;
 		try {

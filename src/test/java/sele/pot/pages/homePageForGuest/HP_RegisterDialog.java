@@ -21,7 +21,7 @@ import sele.util.DriverUtil;
 public class HP_RegisterDialog extends Page {
 	
 	private final static Logger logger = LoggerFactory.getLogger(HP_RegisterDialog.class);
-	@FindBy(css = ".tcb-dialog-box")		//the element identifies the page
+	@FindBy(css = "#register-dialog")		//the element identifies the page
 	@CacheLookup
 	private WebElement PAGE_READY_ELEMENT;
 	@FindBy(css = "#register-dialog div.register-description")		//the text shows in the register dialog.
@@ -38,7 +38,7 @@ public class HP_RegisterDialog extends Page {
 
 	}
 	protected WebElement getPageReadyElement() {
-		return this.PAGE_READY_ELEMENT;
+		return PAGE_READY_ELEMENT;
 	}
 
 	public WhyRegisterPage OpenWhyRegLink() {
