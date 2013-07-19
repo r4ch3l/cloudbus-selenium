@@ -1,4 +1,4 @@
-package sele.pot.pages.register;
+package sele.pot.pages_guest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import sele.pot.pages.Page;
-import sele.pot.pages.homePageForGuest.HomePage;
 import sele.util.DriverUtil;
 /**
  * This is the page object of "Creat Account" page

@@ -1,9 +1,15 @@
 package sele.util;
 
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -102,6 +108,22 @@ public class DriverUtil {
 					+ getDate() + File.separatorChar + "passed"
 					+ File.separatorChar + screenshotFileName + "_" + getTime()
 					+ ".png"));
+		} catch (Exception e) {
+			// No need to crash the tests if the screenshot fails
+		}
+
+	}
+	static public void saveCheckScreenshot(String screenshotFileName) {
+		try {
+			Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+			BufferedImage capture = new Robot().createScreenCapture(screenRect);
+			File screenshot= new File("screenshot");
+			ImageIO.write(capture, "png", screenshot);
+			FileUtils.copyFile(screenshot, new File("target/screenshot_"
+					+ getDate() + File.separatorChar + "toCheck"
+					+ File.separatorChar + screenshotFileName + "_" + getTime()
+					+ ".png"));
+		
 		} catch (Exception e) {
 			// No need to crash the tests if the screenshot fails
 		}

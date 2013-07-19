@@ -1,4 +1,4 @@
-package sele.pot.pages.homeRelated;
+package sele.pot.pages_guest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sele.pot.pages.Page;
-import sele.pot.pages.homePageForGuest.HomePage;
-import sele.pot.pages.homePageForGuest.VideoXDialog;
+import sele.pot.pages.dialogs.VideoXDialog;
+import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 /**
  * This is the page object of "Why Register" page
@@ -18,10 +18,9 @@ import sele.util.DriverUtil;
  * @author XiaoXue_Chen
  *
  */
-public class WhyRegisterPage extends HomePage {
-
-	private final static Logger logger = LoggerFactory
-			.getLogger(WhyRegisterPage.class);
+public class WhyRegisterPage extends Page {
+	private String pageUrl=CfgLoader.whyRegPageUrl;
+	private final static Logger logger = LoggerFactory.getLogger(WhyRegisterPage.class);
 
 	@FindBy(css = ".site.com_content.view-article.no-layout.no-task.itemid-117")
 	private WebElement PAGE_READY_ELEMENT;
@@ -34,7 +33,9 @@ public class WhyRegisterPage extends HomePage {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	public String getPageUrl(){
+		return pageUrl;
+	}
 	public VideoXDialog OpenWhyRegVideo() {
 		DriverUtil.wait(ExpectedConditions.visibilityOf(WHY_REG_IMG));
 		WHY_REG_IMG.click();

@@ -16,7 +16,7 @@ import sele.util.DriverUtil;
  * 
  */
 abstract public class Page {
-
+	
 
 	public Page() {
 		super();
@@ -91,5 +91,6 @@ abstract public class Page {
 		}
 	}
 	
+
 	
 }

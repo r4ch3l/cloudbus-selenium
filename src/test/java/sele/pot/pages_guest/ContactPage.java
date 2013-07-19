@@ -1,4 +1,4 @@
-package sele.pot.pages.homeRelated;
+package sele.pot.pages_guest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sele.pot.pages.Page;
-import sele.pot.pages.homePageForGuest.HomePage;
-import sele.pot.pages.homePageForGuest.VideoXDialog;
+import sele.pot.pages.dialogs.VideoXDialog;
+import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 /**
  * This is the page object of contact page https://cloudbus.tibco.com/index.php/contact
@@ -19,6 +19,7 @@ import sele.util.DriverUtil;
  *
  */
 public class ContactPage extends HomePage {
+	private String pageUrl=CfgLoader.contactPageUrl;
 	private final static Logger logger = LoggerFactory.getLogger(ContactPage.class);
 	public static String url="https://cloudbus.tibco.com/index.php/contact";
 	@FindBy(css = ".site.com_content.view-article.no-layout.no-task.itemid-126")		//the web element identifies the page
@@ -100,5 +101,8 @@ public class ContactPage extends HomePage {
 		DriverUtil.getDriver().switchTo().window(CURRENT_WINDOW);// get out iframe
 		return isEmpty;
 		
+	}
+	public String getPageUrl(){
+		return pageUrl;
 	}
 }

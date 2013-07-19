@@ -1,4 +1,4 @@
-package sele.pot.pages.homePageForGuest;
+package sele.pot.pages.dialogs;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import sele.pot.pages_guest.HomePage;
 import sele.util.DriverUtil;
 
 

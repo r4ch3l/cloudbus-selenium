@@ -1,4 +1,4 @@
-package sele.pot.pages.homePageForGuest;
+package sele.pot.pages.dialogs;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sele.pot.pages.Page;
-import sele.pot.pages.homeRelated.ResetPwdPage;
+import sele.pot.pages_guest.HomePage;
+import sele.pot.pages_guest.ResetPwdPage;
 import sele.util.DriverUtil;
 
 /**

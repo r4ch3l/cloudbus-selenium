@@ -1,4 +1,4 @@
-package sele.pot.pages.homePageForGuest;
+package sele.pot.pages.dialogs;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sele.pot.pages.Page;
-import sele.pot.pages.homeRelated.WhyRegisterPage;
-import sele.pot.pages.register.CreateAccountPage;
+import sele.pot.pages_guest.CreateAccountPage;
+import sele.pot.pages_guest.WhyRegisterPage;
 import sele.util.DriverUtil;
 /**
  * This is the Register dialog object shows after click the register button in the center of home page.

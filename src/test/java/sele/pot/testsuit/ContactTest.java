@@ -16,23 +16,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sele.pot.pages.Page;
-import sele.pot.pages.homeRelated.ContactPage;
+import sele.pot.pages_guest.ContactPage;
 import sele.util.CfgLoader;
 import sele.util.DriverUtil;
 import sele.util.ReportUtil;
 import sele.util.ScreenShotRule;
+import sele.util.TestWatcheRule;
+
+
+
 
 public class ContactTest {
 	private final static Logger logger = LoggerFactory
 			.getLogger(HomeTest.class);
 	private static WebDriver driver = DriverUtil
 			.getDriver(CfgLoader.browserType);
-	private static String hostAndPortAndContext = "https://cloudbus.tibco.com/index.php/contact";
+	ContactPage contactPage = Page.getPage(ContactPage.class);
+
+	@Rule
+	public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
+	@Rule
+	public TestWatcheRule watcher = new TestWatcheRule(logger, driver);
 
 	@AfterClass
 	public static void afterAllIsSaidAndDone() {
 		driver.quit();
-
 	}
 
 	@After
@@ -41,130 +49,91 @@ public class ContactTest {
 
 	@Before
 	public void setUp() {
-		driver.get(hostAndPortAndContext);
+		driver.get(contactPage.getPageUrl());
 	}
 
 	@BeforeClass
 	public static void beforeAllIsSaidAndDone() {
-		// driver.manage().deleteAllCookies();
+		driver.manage().deleteAllCookies();
 	}
 
 	@Test
-	public void SubmitContactMsgWithInvalidEmail() throws IOException {
-		logger.info("ContactTest 3-1: start");
+	public void SubmitWithInvalidEmail__3_1() throws IOException {
 		String actual = "";
+		boolean result=false;
 		try {
-
-			ContactPage contactPage = Page.getPage(ContactPage.class);
-			assertTrue(contactPage.isPresent());
-			contactPage.inputEmailAndMsg("test.com", "test test test test");
+			assertTrue(contactPage.isPresent());// Make sure PageIsOpen
+			contactPage.inputEmailAndMsg("test.com", "test test test test");// InvalidEmailAndValidMSG
 			contactPage.Submit();
-			actual = contactPage.getEmailErrorNotic();
-			assertEquals("What is your email address?", actual);
-			DriverUtil.savePassScreenshot("CB-28_2");
-			boolean result = "What is your email address?".equals(actual);
-			ReportUtil
-					.insertReportLine(
-							"CB-28", // caseID
-							"Validate ContactPage_Guest(step2)", // CaseName
-							"open Contact link on home page, contact page should be opened", // CaseDescription
-							"There is a red message showing up", // expected
-							result == true ? "pass" : "fail", // test result
-							"ContactTest3-1", "none"); // comment
-														// assertTrue(result);
-			logger.info("ContactTest 3-1: done");
-
+			actual = contactPage.getEmailErrorNotic();// getErrorNotice
+			result = "What is your email address?".equals(actual);//check error
+			assertTrue(result);//assert result
+			DriverUtil.savePassScreenshot("CB-28_2");//screen shot
 		} catch (Exception e) {
-			ReportUtil.insertReportLine("CB-28", // caseID
+			e.printStackTrace();
+		}finally{
+			ReportUtil
+			.insertReportLine(
+					"CB-28", // caseID
 					"Validate ContactPage_Guest(step2)", // CaseName
-					"Input invalid email and message then click submit", // CaseDescription
-					"There is a red message showing up ", // expected
-					"error", // test result
-					"ContactTest3-1", e.toString()); // comment
-
+					"open Contact link on home page, contact page should be opened", // CaseDescription
+					"There is a red message showing up", // expected
+					result == true ? "pass" : "fail", // test result
+					"ContactTest3-1", "none"); // comment									
 		}
-
 	}
 
 	@Test
-	public void SubmitContactMsgThenCheck() throws IOException {
-		logger.info("ContactTest 3-2: start");
+	public void SubmitThenCheckTxt__3_2() throws IOException {
 		String actual = "";
+		boolean result=false;
 		try {
-
-			ContactPage contactPage = Page.getPage(ContactPage.class);
 			assertTrue(contactPage.isPresent());
 			contactPage
 					.inputEmailAndMsg("test@test.com", "test test test test");
 			contactPage.Submit();
 			actual = contactPage.getThankUAftersubmit();
+			result = "Your form has been submitted.".equals(actual);
 			assertEquals("Your form has been submitted.", actual);
 			DriverUtil.savePassScreenshot("CB-28_3");
-			boolean result = "Your form has been submitted.".equals(actual);
-
-			ReportUtil
-					.insertReportLine(
-							"CB-28", // caseID_step
-							"Validate ContactPage_Guest(step3)", // CaseName
-							"Open Contact pape, input valid msg and email ,then submit.", // CaseDescription
-							"There will be a \"Thank you \" msg shows up after the message send out. ", // expected
-							result == true ? "pass" : "fail", // test result
-							"ContactTest3-2", "none"); // comment
-														// assertTrue(result);
-			logger.info("ContactTest 3-2: done");
 		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
 			ReportUtil
-					.insertReportLine(
-							"CB-28", // caseID_step
-							"Validate ContactPage_Guest(step3)", // CaseName
-							"Open Contact pape, input valid msg and email ,then submit.", // CaseDescription
-							"There will be a \"Thank you \" msg shows up after the message send out. ", // expected
-							"error", // test result
-							"ContactTest3-2", e.toString()); // comment
-
+			.insertReportLine(
+					"CB-28", // caseID_step
+					"Validate ContactPage_Guest(step3)", // CaseName
+					"Open Contact pape, input valid msg and email ,then submit.", // CaseDescription
+					"There will be a \"Thank you \" msg shows up after the message send out. ", // expected
+					result == true ? "pass" : "fail", // test result
+					"ContactTest3-2", "none"); // commentAssertTrue(result);
 		}
-
 	}
 
 	@Test
-	public void ClickResetThenCheck() throws IOException {
-		logger.info("ContactTest 3-3: start");
-		boolean actual = false;
-		try {
+	public void ResetThenCheck__3_3() throws IOException {
 
-			ContactPage contactPage = Page.getPage(ContactPage.class);
+		boolean result = false;
+		try {
 			assertTrue(contactPage.isPresent());
 			contactPage
-					.inputEmailAndMsg("test@test.com", "test test test test");
+					.inputEmailAndMsg("test@test.com", "Test reset whether reset button works.");
 			contactPage.clickReset();
-			actual = contactPage.isInputEmpty();
-			assertTrue(actual);
+			result = contactPage.isInputEmpty();
+			assertTrue(result);
 			DriverUtil.savePassScreenshot("CB-28_4");
-
-			ReportUtil
-					.insertReportLine(
-							"CB-28", // caseID_step
-							"Validate ContactPage_Guest(step4)", // CaseName
-							" OpenContact page ,input valid msg and email adress,then click \"reset\".", // CaseDescription
-							" Email address input and Message input should be empty now.", // expected
-							actual == true ? "pass" : "fail", // test result
-							"ContactTest3-3", "none"); // comment
-														// assertTrue(result);
-			logger.info("ContactTest 3-3: done");
 		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
 			ReportUtil
-					.insertReportLine(
-							"CB-28", // caseID_step
-							"Validate ContactPage_Guest(step4)", // CaseName
-							" OpenContact page ,input valid msg and email adress,then click \"reset\".", // CaseDescription
-							" Email address input and Message input should be empty now.", // expected
-							"error", // test result
-							"ContactTest3-3", e.toString()); // comment
-
+			.insertReportLine(
+					"CB-28", // caseID_step
+					"Validate ContactPage_Guest(step4)", // CaseName
+					" OpenContact page ,input valid msg and email adress,then click \"reset\".", // CaseDescription
+					" Email address input and Message input should be empty now.", // expected
+					result == true ? "pass" : "fail", // test result
+					"ContactTest3-3", "none"); // commentAssertTrue(result);
 		}
-
 	}
 
-	@Rule
-	public ScreenShotRule screenshotTestRule = new ScreenShotRule(driver);
 }

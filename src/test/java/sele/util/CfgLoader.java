@@ -40,7 +40,11 @@ public class CfgLoader {
 	public static String dateformat = load("email.dateformat");
 	public static String sendTo = load("email.sentTo");
 	public static String ccTo = load("email.ccTo");
-
+	//URL of pages
+	public static String homePageUrl=load("url.homePage");
+	public static String contactPageUrl=load("url.contactPage");
+	public static String whyRegPageUrl=load("url.whyRegPage");
+	
 	public static String load(String key) {
 		Properties props = new Properties();
 		try {

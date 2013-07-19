@@ -42,8 +42,8 @@ public class ReportUtil {
 		String summary = "  complete rate: 100%";
 		String rate = String
 				.format("%.2f", ((double) (run - fail) / run) * 100) + "%";
-		String testEnvironment = " os: " + CfgLoader.os + ";	\t browser: "
-				+ CfgLoader.browserVersion + ";	\t location: "
+		String testEnvironment = " OS: " + CfgLoader.os + ";	\t Browser: "
+				+ CfgLoader.browserVersion + ";	\t Location: "
 				+ CfgLoader.testLocation;
 		String[] search = new String[] { "$ProjectName", "$Total", "$Passed",
 				"$Failed", "$TestDate", "$Duration", "$TestEnvironment",
@@ -66,11 +66,14 @@ public class ReportUtil {
 			String description, String expected, String result,
 			String seleniumId, String comment) {
 		String html = "   <tr>" + "\n" + "    <td>" + id + "</td>" + "\n"
-				+ "    <td>" + taskname + "</td>" + "\n" + "    <td>"
-				+ description + "</td>" + "\n" + "    <td>" + getExecuteTime()
-				+ "</td>" + "\n" + "    <td>" + expected + "</td>" + "\n"
-				+ "    <td>" + result + "</td>" + "\n" + "    <td>"
-				+ seleniumId + "</td>" + "\n" + "    <td>" + comment + "</td>"
+				+ "    <td>" + taskname + "</td>" + "\n" 
+				+ "    <td>"+ description + "</td>" + "\n" 
+				 
+				+ "    <td>" + expected + "</td>" + "\n"
+				+ "    <td>" + result + "</td>" + "\n" 
+				+ "    <td>" + getExecuteTime()+ "</td>" + "\n"
+				+ "    <td>"+ seleniumId + "</td>" + "\n" 
+				+ "    <td>" + comment + "</td>"
 				+ "\n" + "   </tr>" + "\n";
 		AppendContent("target" + File.separatorChar + "TestReport.htm", html);
 

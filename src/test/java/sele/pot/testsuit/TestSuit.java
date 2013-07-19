@@ -2,6 +2,7 @@ package sele.pot.testsuit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.Result;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import sele.util.CfgLoader;
 import sele.util.EmailUtil;
 import sele.util.ReportUtil;
+import sele.util.ScreenShotRule;
+import sele.util.TestWatcheRule;
 
 
 
@@ -23,6 +26,7 @@ public class TestSuit {
 	private final static Logger logger = LoggerFactory.getLogger(TestSuit.class);
 	long currentTime = System.currentTimeMillis();
 
+	
 	@Before
 	public void setup() {
 		ReportUtil.getReport();
@@ -30,7 +34,7 @@ public class TestSuit {
 
 	@Test
 	public void test() {
-		Result r = org.junit.runner.JUnitCore.runClasses(ContactTest.class,HomeTest.class,LoginTest.class,RegisterTest.class);
+		Result r = org.junit.runner.JUnitCore.runClasses(HomeTest.class,LoginTest.class,RegisterTest.class,ContactTest.class);
 //		Result r = org.junit.runner.JUnitCore.runClasses(HomeTest.class);
 		int run=r.getRunCount();
 		int fail=r.getFailureCount();
@@ -42,7 +46,7 @@ public class TestSuit {
 
 	@After
 	public void email() {
-		EmailUtil.sendHTMLEmail(CfgLoader.sendTo);
+//		EmailUtil.sendHTMLEmail(CfgLoader.sendTo);
 	}
 
 }

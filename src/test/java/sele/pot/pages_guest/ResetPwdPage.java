@@ -1,4 +1,4 @@
-package sele.pot.pages.homeRelated;
+package sele.pot.pages_guest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

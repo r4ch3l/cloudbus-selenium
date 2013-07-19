@@ -54,7 +54,7 @@ public class EmailUtil {
 			email.addTo(address);
 			email.setFrom(sentFrom);// here must the same as AuthenticationName
 			email.setSubject(subject);
-			// email.attach(getZipAsAttachement());
+			email.attach(getZipAsAttachement());
 			// URL url = new
 			// URL("https://cloudbus.tibco.com/images/tibco_cloudbus.png");
 			// String cid = email.embed(url, "cloudbus logo");
