@@ -8,7 +8,13 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+ 
   <dependencies>
+  	<dependency>
+		<groupId>org.jbehave</groupId>
+		<artifactId>jbehave-core</artifactId>
+		<version>3.8</version>
+	</dependency>     
     <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -20,16 +26,28 @@
 			<version>1.7.5</version>
 	</dependency>
 	<dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.0.13</version>
+        <scope>runtime</scope>
+    </dependency>
+	<dependency>
+		<groupId>ch.qos.logback</groupId>
+		<artifactId>logback-classic</artifactId>
+		<version>1.0.13</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
 		<groupId>org.hamcrest</groupId>
 		<artifactId>hamcrest-all</artifactId>
 		<version>1.3</version>
 	</dependency>
-	<!-- <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-core</artifactId>
-        <version>1.0.6</version>
-        <scope>runtime</scope>
-    </dependency> -->
+	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>1.6.1</version>
+	</dependency>
+
 	<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -50,21 +68,56 @@
 			<artifactId>commons-email</artifactId>
 			<version>1.3.1</version>
 	</dependency>
+	
+<!-- slf4j simple
 	<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.5</version>
+			<scope>runtime</scope>
 	</dependency>
+-->
+
+            
     <dependency>
 		<groupId>org.apache.ant</groupId>
 		<artifactId>ant</artifactId>
 		<version>1.7.1</version>
 	</dependency>
-            
+      <dependency> 
+    <groupId>xml-apis</groupId>
+    <artifactId>xml-apis</artifactId>
+    <version>1.4.01</version>
+</dependency>      
   </dependencies>
    <build>
     <defaultGoal>clean</defaultGoal>
 	<plugins>
+	<!-- <plugin>
+                <groupId>org.jbehave</groupId>
+                <artifactId>jbehave-maven-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <id>map-stories</id>
+      <phase>integration-test</phase>
+      <configuration>
+        <includes>
+          <include>**/BDD/*.story</include>
+        </includes>
+        <metaFilters>
+          <metaFilter>+author *</metaFilter>
+          <metaFilter>+theme *</metaFilter>
+          <metaFilter>-skip</metaFilter>
+        </metaFilters>              
+      </configuration>
+      <goals>
+        <goal>map-stories-as-paths</goal>
+      </goals>
+                    </execution>
+                </executions>
+            </plugin>
+	-->
         <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>selenium-maven-plugin</artifactId>
@@ -76,7 +129,7 @@
   			<version>2.15</version>
   			<configuration>
               <includes>
-              		<include>**/TestSuit.java</include>
+              		<include>**/TestSet.java</include>
               </includes>
               <forkCount>8</forkCount>
        		  <reuseForks>false</reuseForks>
@@ -85,16 +138,32 @@
             </configuration>
 		</plugin>
 		<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-    	<version>3.1</version>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.1</version>
+			<configuration>
+				<source>1.5</source>
+				<target>1.5</target>
+			</configuration>
       </plugin>
-    </plugins>
+    <plugin>
+  		<groupId>org.apache.maven.plugins</groupId>
+  		<artifactId>maven-scm-plugin</artifactId>
+ 		 <version>1.7</version>
+ 		 <configuration>
+		    <username>qa</username>
+		    <password>qa</password>
+ 		   <checkoutDirectory>D:\workspace_tibco\cloudbus</checkoutDirectory>
+ 		   <workingDirectory>D:\workspace_tibco\cloudbus</workingDirectory>
+		  </configuration>
+		</plugin>
+  	  </plugins>
    </build>
-  
+   <!-- Environment Settings -->
+    <scm>
+  	  <connection>scm:svn:http://svn.tibco.com:8008/cloud/trunk/CloudBus/QA/UI_Automation/cloudbus_selenium</connection>
+  	  <developerConnection>scm:svn:http://svn.tibco.com:8008/cloud/trunk/CloudBus/QA/UI_Automation/cloudbus_selenium</developerConnection>
+ 	  <tag>HEAD</tag>
+	  <url>http://svn.tibco.com:8008/cloud/trunk/CloudBus/QA/UI_Automation/cloudbus_selenium</url>
+ 	 </scm>
 </project>
-  
